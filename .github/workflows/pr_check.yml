@@ -33,6 +33,18 @@ jobs:
           git checkout origin/pkgdown -- .github
           git checkout origin/pkgdown -- _pkgdown.yml
 
+      - name: Install TinyTex
+        uses: r-lib/actions/setup-tinytex@v2
+
+      - name: Get tlmgr version
+        run: tlmgr --version
+
+      - name: Install LaTeX packages
+        run: |
+          tlmgr update --self
+          tlmgr install titlesec
+          tlmgr list --only-installed
+
       - name: Query dependencies
         run: |
           BiocManager::install(c("covr", "BiocCheck"))
