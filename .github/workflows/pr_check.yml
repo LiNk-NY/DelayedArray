@@ -14,6 +14,7 @@ env:
   GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
   CRAN: https://p3m.dev/cran/__linux__/noble/latest
   BIOC_RELEASE: RELEASE_3_21
+  PKG_SYSREQS_DB_UPDATE_TIMEOUT: 30
 
 jobs:
   check:
