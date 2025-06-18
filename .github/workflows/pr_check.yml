@@ -39,6 +39,12 @@ jobs:
         env: 
           TINYTEX_INSTALLER: TinyTeX
 
+      - name: Install addtional LaTeX packages
+        run: |
+          tlmgr update --self
+          tlmgr install beamer
+          tlmgr list --only-installed
+
       - name: Query dependencies
         run: |
           BiocManager::install(c("covr", "BiocCheck"))
