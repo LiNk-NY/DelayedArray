@@ -34,29 +34,10 @@ jobs:
           git checkout origin/pkgdown -- .github
           git checkout origin/pkgdown -- _pkgdown.yml
 
-      - name: Install LaTeX beamer package
-        run: |
-          sudo apt-get update && sudo apt-get install -y \
-          texlive-latex-extra
-        shell: bash
-
-      - name: Install texinfo
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texinfo || true
-        shell: bash
-
       - name: Install TinyTex
         uses: r-lib/actions/setup-tinytex@v2
-
-      - name: Get tlmgr version
-        run: tlmgr --version
-
-      - name: Install LaTeX packages
-        run: |
-          tlmgr update --self
-          tlmgr install titlesec
-          tlmgr list --only-installed
+        env: 
+          TINYTEX_INSTALLER: TinyTeX
 
       - name: Query dependencies
         run: |
