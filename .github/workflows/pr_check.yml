@@ -34,6 +34,14 @@ jobs:
           git checkout origin/pkgdown -- .github
           git checkout origin/pkgdown -- _pkgdown.yml
 
+      - name: Install LaTeX beamer package
+        run: |
+          sudo apt-get update && sudo apt-get install -y \
+          texlive-latex-recommended texlive-latex-extra \
+          texlive-fonts-recommended texlive-fonts-extra \
+          texlive-beamer
+        shell: bash
+
       - name: Install texinfo
         run: |
           sudo apt-get update
