@@ -34,6 +34,11 @@ jobs:
           git checkout origin/pkgdown -- .github
           git checkout origin/pkgdown -- _pkgdown.yml
 
+      - name: Install texinfo
+        run: |
+            sudo apt update && sudo apt install -y \
+            libtext-unidecode-perl texinfo texinfo-lib
+
       - name: Install TinyTex
         uses: r-lib/actions/setup-tinytex@v2
         env: 
