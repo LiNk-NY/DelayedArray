@@ -1,6 +1,7 @@
 name: PR CMD check & build site
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'DESCRIPTION'
